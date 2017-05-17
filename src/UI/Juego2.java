@@ -12,9 +12,9 @@ public class Juego2 {
 
 	private Baraja crearBaraja() {
 
-		String[] nombres = { "gato", "perro", "flor1", "flor2" };
-		String[] parejas = { "perro", "gato", "flor2", "flor1" };
-		String[] imagenes = { "gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg" };
+		String[] nombres = { "gato", "perro", "flor1", "flor2","gato", "perro", "flor1", "flor2" };
+		String[] parejas = { "gato", "perro", "flor1", "flor2","gato", "perro", "flor1", "flor2" };
+		String[] imagenes = { "gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg","gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg" };
 
 		Baraja baraja = new Baraja(nombres, parejas, imagenes);
 

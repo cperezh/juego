@@ -39,7 +39,7 @@ public class PanelCarta extends JPanel {
 
 	public void displayImage() {
 
-		Image imagenEscalada = new ImageIcon(FrameAplicacion.rutaImagenes + carta.getImagen()).getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+		Image imagenEscalada = new ImageIcon(FrameAplicacion.rutaImagenes + carta.getImagen()).getImage().getScaledInstance(this.getWidth()-50, this.getHeight()-50, Image.SCALE_SMOOTH);
 
 		imgLabel = new JLabel(new ImageIcon(imagenEscalada));
 
@@ -68,7 +68,7 @@ public class PanelCarta extends JPanel {
 
 	public void seleccionarPanel() {
 
-		Border b2 = new LineBorder(Color.BLACK, 10);
+		Border b2 = new LineBorder(Color.ORANGE, 30);
 
 		this.imgLabel.setBorder(b2);
 

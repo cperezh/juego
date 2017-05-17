@@ -32,7 +32,7 @@ public class FrameAplicacion extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
-		setLayout(new GridLayout(2, 2));
+		setLayout(new GridLayout(3, 3));
 
 		addWindowListener(new EventosVentana(this));
 	}
