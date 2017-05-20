@@ -1,10 +1,10 @@
-package UI;
+package ui;
 
 import juego.Baraja;
 
 public class Juego2 {
 
-	Baraja baraja;
+	private Baraja baraja;
 
 	public Juego2() {
 		baraja = crearBaraja();
@@ -12,8 +12,8 @@ public class Juego2 {
 
 	private Baraja crearBaraja() {
 
-		String[] nombres = { "gato", "perro", "flor1", "flor2","gato", "perro", "flor1", "flor2" };
-		String[] parejas = { "gato", "perro", "flor1", "flor2","gato", "perro", "flor1", "flor2" };
+		String[] nombres = { "gato", "perro", "flor1", "flor2","gato2", "perro2", "flor1_2", "flor2_2" };
+		String[] parejas = { "gato2", "perro2", "flor1_2", "flor2_2","gato", "perro", "flor1", "flor2" };
 		String[] imagenes = { "gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg","gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg" };
 
 		Baraja baraja = new Baraja(nombres, parejas, imagenes);

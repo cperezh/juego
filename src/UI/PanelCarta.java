@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -39,18 +39,22 @@ public class PanelCarta extends JPanel {
 
 	public void displayImage() {
 
-		Image imagenEscalada = new ImageIcon(FrameAplicacion.rutaImagenes + carta.getImagen()).getImage().getScaledInstance(this.getWidth()-50, this.getHeight()-50, Image.SCALE_SMOOTH);
+		Image imagenEscalada = new ImageIcon(FrameAplicacion.rutaImagenes + carta.getImagen()).getImage().getScaledInstance(this.getWidth() - 50, this.getHeight() - 50, Image.SCALE_SMOOTH);
 
 		imgLabel = new JLabel(new ImageIcon(imagenEscalada));
 
+		// System.out.println(((ImageIcon)imgLabel.getIcon()).getImageLoadStatus());
+		//
+		// System.out.println(MediaTracker.ABORTED+","+MediaTracker.COMPLETE+","+MediaTracker.ERRORED+","+MediaTracker.LOADING);
+
 		this.add(imgLabel);
-		
+
 		SwingUtilities.updateComponentTreeUI(this);
 
 	}
 
 	public void displayImageOK() {
-		
+
 		desactivado = true;
 
 		this.remove(imgLabel);
@@ -60,9 +64,8 @@ public class PanelCarta extends JPanel {
 		imgLabel = new JLabel(new ImageIcon(imagenEscalada));
 
 		this.add(imgLabel);
-		
-		SwingUtilities.updateComponentTreeUI(this);
 
+		SwingUtilities.updateComponentTreeUI(this);
 
 	}
 
@@ -93,7 +96,7 @@ public class PanelCarta extends JPanel {
 		// Si hay algun panel seleccionado
 		else {
 			// Si la carta de este es la pareja del seleccionado
-			
+
 			if (carta.getPareja().equals(frameAplicacion.getPanelPulsado().getCarta())) {
 
 				displayImageOK();
@@ -104,17 +107,13 @@ public class PanelCarta extends JPanel {
 			// Si no son pareja
 			else {
 				// Despulsar el pulsado y pulsar este
-				
+
 				frameAplicacion.getPanelPulsado().desSeleccionarPanel();
 
 				seleccionarPanel();
 
 			}
 		}
-
-	}
-
-	public void unpressImage() {
 
 	}
 
@@ -134,6 +133,22 @@ public class PanelCarta extends JPanel {
 		this.desactivado = desactivado;
 	}
 
+	public JLabel getImgLabel() {
+		return imgLabel;
+	}
+
+	public void setImgLabel(JLabel imgLabel) {
+		this.imgLabel = imgLabel;
+	}
+
+	public FrameAplicacion getFrameAplicacion() {
+		return frameAplicacion;
+	}
+
+	public void setFrameAplicacion(FrameAplicacion frameAplicacion) {
+		this.frameAplicacion = frameAplicacion;
+	}
+
 }
 
 class EventosPanel extends MouseAdapter {
@@ -144,7 +159,8 @@ class EventosPanel extends MouseAdapter {
 		this.panelCarta = panelCartaInit;
 	}
 
-	public void mousePressed(MouseEvent me) {
+	@Override
+	public void mouseClicked(MouseEvent me) {
 
 		if (!panelCarta.isDesactivado())
 			panelCarta.pressPanel();

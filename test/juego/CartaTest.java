@@ -1,4 +1,4 @@
-package test;
+package juego;
 
 import org.junit.Test;
 

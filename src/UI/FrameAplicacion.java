@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 import juego.Baraja;
 
@@ -68,17 +67,6 @@ public class FrameAplicacion extends JFrame {
 			panelCarta.displayImage();
 
 		}
-
-		//SwingUtilities.updateComponentTreeUI(this);
-	}
-	
-	public void despusarTodosPaneles(){
-		
-		panelPulsado = null;
-		
-		for (PanelCarta panelCarta:panelesCartas){
-			panelCarta.unpressImage();
-		}
 	}
 
 	public PanelCarta getPanelPulsado() {
@@ -88,6 +76,24 @@ public class FrameAplicacion extends JFrame {
 	public void setPanelPulsado(PanelCarta panelPulsado) {
 		this.panelPulsado = panelPulsado;
 	}
+
+	public Baraja getBaraja() {
+		return baraja;
+	}
+
+	public void setBaraja(Baraja baraja) {
+		this.baraja = baraja;
+	}
+
+	public List<PanelCarta> getPanelesCartas() {
+		return panelesCartas;
+	}
+
+	public void setPanelesCartas(List<PanelCarta> panelesCartas) {
+		this.panelesCartas = panelesCartas;
+	}
+	
+	
 
 }
 
