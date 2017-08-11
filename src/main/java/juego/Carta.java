@@ -40,7 +40,7 @@ public class Carta {
 
 	@Override
 	public String toString() {
-		return nombre + "," + pareja + "," + imagen;
+		return nombre + ",(" + pareja + ")," + imagen;
 	}
 
 	public String getNombre() {

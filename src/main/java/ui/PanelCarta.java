@@ -38,19 +38,17 @@ public class PanelCarta extends JPanel {
 	}
 
 	public void displayImage() {
+		
+		String path = Thread.currentThread().getContextClassLoader().getResource(FrameAplicacion.rutaImagenes + carta.getImagen()).getPath();
 
-		Image imagenEscalada = new ImageIcon(FrameAplicacion.rutaImagenes + carta.getImagen()).getImage().getScaledInstance(this.getWidth() - 50, this.getHeight() - 50, Image.SCALE_SMOOTH);
+		Image imagenEscalada = new ImageIcon(path).getImage().getScaledInstance(this.getWidth() - 50, this.getHeight() - 50, Image.SCALE_SMOOTH);
 
 		imgLabel = new JLabel(new ImageIcon(imagenEscalada));
-
-		// System.out.println(((ImageIcon)imgLabel.getIcon()).getImageLoadStatus());
-		//
-		// System.out.println(MediaTracker.ABORTED+","+MediaTracker.COMPLETE+","+MediaTracker.ERRORED+","+MediaTracker.LOADING);
 
 		this.add(imgLabel);
 
 		SwingUtilities.updateComponentTreeUI(this);
-
+		
 	}
 
 	public void displayImageOK() {

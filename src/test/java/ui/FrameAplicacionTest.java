@@ -6,6 +6,8 @@ import javax.swing.ImageIcon;
 
 import org.junit.Test;
 
+import juego.Juego;
+
 public class FrameAplicacionTest {
 
 
@@ -14,9 +16,9 @@ public class FrameAplicacionTest {
 
 		Boolean todosImagenesCargadas = true;
 
-		Juego2 juego2 = new Juego2();
+		Juego juego = new Juego();
 
-		FrameAplicacion frame = new FrameAplicacion("Juego Manuel", juego2.getBaraja());
+		FrameAplicacion frame = new FrameAplicacion("Juego Manuel", juego);
 
 		frame.pintarCartas();
 

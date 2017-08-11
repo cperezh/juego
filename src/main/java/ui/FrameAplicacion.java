@@ -8,22 +8,23 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import juego.Baraja;
+import juego.Juego;
 
 @SuppressWarnings("serial")
 public class FrameAplicacion extends JFrame {
 
-	public static final String rutaImagenes = "bin/images/";
+	public static final String rutaImagenes = "images/";
+	//public static final String rutaImagenes = "C:/Users/Carlos/workspace/Juego/target/classes/images/";
 
-	private Baraja baraja;
+	private Juego juego;
 	private List<PanelCarta> panelesCartas;
 	private PanelCarta panelPulsado;
 
-	public FrameAplicacion(String nombre, Baraja barajaInicial) {
+	public FrameAplicacion(String nombre, Juego _juego) {
 
 		super(nombre);
 
-		baraja = barajaInicial;
+		juego = _juego;
 
 		panelesCartas = crearPaneles();
 
@@ -43,12 +44,12 @@ public class FrameAplicacion extends JFrame {
 
 		List<PanelCarta> panelesCartas;
 
-		panelesCartas = new ArrayList<PanelCarta>(baraja.getCartas().size());
+		panelesCartas = new ArrayList<PanelCarta>(juego.getBaraja().getCartas().size());
 
 		// Creo los paneles
-		for (Integer i = 0; i < baraja.getCartas().size(); i++) {
+		for (Integer i = 0; i < juego.getBaraja().getCartas().size(); i++) {
 
-			PanelCarta panelCarta = new PanelCarta(baraja.getCartas().get(i), this);
+			PanelCarta panelCarta = new PanelCarta(juego.getBaraja().getCartas().get(i), this);
 
 			panelesCartas.add(panelCarta);
 
@@ -75,14 +76,6 @@ public class FrameAplicacion extends JFrame {
 
 	public void setPanelPulsado(PanelCarta panelPulsado) {
 		this.panelPulsado = panelPulsado;
-	}
-
-	public Baraja getBaraja() {
-		return baraja;
-	}
-
-	public void setBaraja(Baraja baraja) {
-		this.baraja = baraja;
 	}
 
 	public List<PanelCarta> getPanelesCartas() {
