@@ -1,14 +1,7 @@
 package ui;
 
-import juego.Juego;
-
 public class JuegoUI {
 	
-	private Juego juego;
-	
-	public JuegoUI(){
-		juego = new Juego();
-	}
 
 	/**
 	 * Create the GUI and show it. For thread safety, this method should be
@@ -17,7 +10,7 @@ public class JuegoUI {
 	public void createAndShowGUI() {
 
 		// Create and set up the window.
-		FrameAplicacion frame = new FrameAplicacion("Juego Manuel", juego);
+		FrameAplicacion frame = new FrameAplicacion("Juego Manuel");
 
 		// Display the window.
 		frame.pack();

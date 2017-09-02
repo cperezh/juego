@@ -11,37 +11,83 @@ public class JuegoTest {
 
 	@Test
 	/**
-	 * Pruaba que la baraja está bien formada. Los tres arrays tienen que tener la misma longitud
+	 * Pruaba que la baraja está bien formada. Los tres arrays tienen que tener
+	 * la misma longitud
 	 */
-	public void testJuego2() {
+	public void testBarajaJuego() {
 
 		try {
-			new JuegoUI();
+			new Juego();
 		} catch (Exception ex) {
 			fail(ex.toString());
 		}
 	}
 
+	
+
 	@Test
-	public void testBarajaConNumeroCartasPar() {
+	public void testTodasLasParejasSonCartas() {
+		
 		Juego juego = new Juego();
+		
+		boolean cartaEncontrada;
 
-		Integer numCartasBaraja = juego.getBaraja().getCartas().size();
+		for (Carta carta:juego.getBaraja().getCartas()) {
+			
+			cartaEncontrada = false;
 
-		assert (numCartasBaraja % 2 == 0);
+			for (Carta carta2:juego.getBaraja().getCartas()) {
+
+				if (carta.getPareja().equals(carta2)) {
+					cartaEncontrada = true;
+					break;
+				}
+			}
+			
+			if (!cartaEncontrada){
+				fail("Pareja que no es carta: "+carta.getPareja().getNombre());
+			}
+		}
 	}
 
 	@Test
-	public void testTodasCartasTienenPareja() {
-
-		Boolean todasConPareja;
-
+	public void testNoDosVecesLaMismaCarta() {
 		Juego juego = new Juego();
 
-		for (Carta carta : juego.getBaraja().getCartas()) {
+		for (int i = 0; i < juego.getBaraja().getCartas().size(); i++) {
 
+			Carta carta = juego.getBaraja().getCartas().get(i);
+
+			for (int j = i + 1; j < juego.getBaraja().getCartas().size(); j++) {
+
+				Carta carta2 = juego.getBaraja().getCartas().get(j);
+
+				if (carta.equals(carta2)) {
+					fail("Cartas iguales: "+carta.getNombre()+" y "+carta2.getNombre());
+				}
+			}
 		}
 
-		fail ("Not developed yet"); 
 	}
+
+	@Test
+	public void testNoDosVecesLaMismaPareja() {
+		Juego juego = new Juego();
+
+		for (int i = 0; i < juego.getBaraja().getCartas().size(); i++) {
+
+			Carta carta = juego.getBaraja().getCartas().get(i);
+
+			for (int j = i + 1; j < juego.getBaraja().getCartas().size(); j++) {
+
+				Carta carta2 = juego.getBaraja().getCartas().get(j);
+
+				if (carta.getPareja().equals(carta2.getPareja())) {
+					fail("Parejas iguales: "+carta.getPareja().getNombre()+" y "+carta2.getPareja().getNombre());
+				}
+			}
+		}
+
+	}
+
 }

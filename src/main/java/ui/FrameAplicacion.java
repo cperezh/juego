@@ -13,18 +13,18 @@ import juego.Juego;
 @SuppressWarnings("serial")
 public class FrameAplicacion extends JFrame {
 
+	//TODO: Move to a properties
 	public static final String rutaImagenes = "images/";
-	//public static final String rutaImagenes = "C:/Users/Carlos/workspace/Juego/target/classes/images/";
-
+	
 	private Juego juego;
 	private List<PanelCarta> panelesCartas;
 	private PanelCarta panelPulsado;
 
-	public FrameAplicacion(String nombre, Juego _juego) {
+	public FrameAplicacion(String nombre) {
 
 		super(nombre);
 
-		juego = _juego;
+		juego = new Juego();
 
 		panelesCartas = crearPaneles();
 
