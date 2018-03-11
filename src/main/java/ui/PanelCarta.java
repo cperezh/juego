@@ -56,8 +56,10 @@ public class PanelCarta extends JPanel {
 		desactivado = true;
 
 		this.remove(imgLabel);
+		
+		String path = Thread.currentThread().getContextClassLoader().getResource(FrameAplicacion.rutaImagenes + "ok.jpg").getPath();
 
-		Image imagenEscalada = new ImageIcon(FrameAplicacion.rutaImagenes + "ok.jpg").getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+		Image imagenEscalada = new ImageIcon(path).getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
 
 		imgLabel = new JLabel(new ImageIcon(imagenEscalada));
 
