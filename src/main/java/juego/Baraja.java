@@ -3,6 +3,8 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.MyMaths;
+
 public class Baraja {
 
 	private List<Carta> cartas = new ArrayList<Carta>();
@@ -16,6 +18,28 @@ public class Baraja {
 			
 			cartas.add(carta);
 		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void barajear(){
+		
+		Carta temp;
+		
+		for (int i=0;i<10;i++){
+		
+			int posicion1 = MyMaths.random()/cartas.size();
+						
+			int posicion2 = MyMaths.random()/cartas.size();
+			
+			temp = cartas.get(posicion1);
+			
+			cartas.set(posicion1, cartas.get(posicion2));
+			
+			cartas.set(posicion2,temp);
+		}
+		
 	}
 
 	public List<Carta> getCartas() {

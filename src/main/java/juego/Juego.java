@@ -20,6 +20,8 @@ public class Juego {
 		barajaProp = PropertiesUtil.loadProperties(barajaProperties);
 		
 		baraja = crearBaraja(barajaProp);
+		
+		baraja.barajear();
 	}
 
 	private Baraja crearBaraja(Properties barajaProp)  {
