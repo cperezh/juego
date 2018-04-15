@@ -1,19 +1,33 @@
 package juego;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import ui.FrameAplicacion;
+import util.PropertiesUtil;
+
 public class Juego {
-
+	
+	private static final String barajaProperties = FrameAplicacion.properties + "baraja.prop";
+	
 	private Baraja baraja;
+	
+	private Properties barajaProp;
 
-	public Juego() {
-		baraja = crearBaraja();
+	public Juego() throws FileNotFoundException,IOException {
+		
+		barajaProp = PropertiesUtil.loadProperties(barajaProperties);
+		
+		baraja = crearBaraja(barajaProp);
 	}
 
-	private Baraja crearBaraja() {
-
-		String[] nombres = { "gato", "perro", "flor1", "flor2", "gato2", "perro2", "flor1_2", "flor2_2" };
-		String[] parejas = { "gato2", "perro2", "flor1_2", "flor2_2", "gato", "perro", "flor1", "flor2" };
-		String[] imagenes = { "gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg", "gato.jpg", "perro.jpg", "flor.jpg", "flor2.jpg" };
-
+	private Baraja crearBaraja(Properties barajaProp)  {
+		
+		String[] nombres = barajaProp.getProperty("nombres").split(",");
+		String[] parejas = barajaProp.getProperty("parejas").split(",");
+		String[] imagenes = barajaProp.getProperty("imagenes").split(",");
+		
 		Baraja baraja = new Baraja(nombres, parejas, imagenes);
 
 		return baraja;

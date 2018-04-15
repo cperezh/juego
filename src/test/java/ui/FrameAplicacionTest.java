@@ -1,6 +1,8 @@
 package ui;
 
 import java.awt.MediaTracker;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 
@@ -10,7 +12,7 @@ public class FrameAplicacionTest {
 
 
 	@Test
-	public void testPintarCartas() {
+	public void testPintarCartas() throws IOException,FileNotFoundException{
 
 		Boolean todosImagenesCargadas = true;
 

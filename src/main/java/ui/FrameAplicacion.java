@@ -3,26 +3,36 @@ package ui;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import javax.swing.JFrame;
 
 import juego.Juego;
+import util.PropertiesUtil;
 
 @SuppressWarnings("serial")
 public class FrameAplicacion extends JFrame {
 
-	//TODO: Move to a properties
-	public static final String rutaImagenes = "images/";
+	public static final String properties = "prop/";
 	
+	public static String rutaImagenes ;
+		
+	private Properties mainProperties;
 	private Juego juego;
 	private List<PanelCarta> panelesCartas;
 	private PanelCarta panelPulsado;
 
-	public FrameAplicacion(String nombre) {
+	public FrameAplicacion(String nombre) throws IOException,FileNotFoundException {
 
 		super(nombre);
+		
+		mainProperties = PropertiesUtil.loadProperties(properties + "/main.prop");
+		
+		rutaImagenes = mainProperties.getProperty("rutaImagenes");
 
 		juego = new Juego();
 
@@ -32,7 +42,7 @@ public class FrameAplicacion extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
-		setLayout(new GridLayout(3, 3));
+		setLayout(new GridLayout(3, 2));
 
 		addWindowListener(new EventosVentana(this));
 	}

@@ -2,6 +2,9 @@ package ui;
 
 import static org.junit.Assert.fail;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.junit.Test;
 
 import juego.Carta;
@@ -11,7 +14,7 @@ public class JuegoTest {
 
 	@Test
 	/**
-	 * Pruaba que la baraja está bien formada. Los tres arrays tienen que tener
+	 * Pruaba que la baraja estï¿½ bien formada. Los tres arrays tienen que tener
 	 * la misma longitud
 	 */
 	public void testBarajaJuego() {
@@ -26,7 +29,7 @@ public class JuegoTest {
 	
 
 	@Test
-	public void testTodasLasParejasSonCartas() {
+	public void testTodasLasParejasSonCartas() throws IOException,FileNotFoundException {
 		
 		Juego juego = new Juego();
 		
@@ -51,7 +54,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void testNoDosVecesLaMismaCarta() {
+	public void testNoDosVecesLaMismaCarta() throws IOException,FileNotFoundException {
 		Juego juego = new Juego();
 
 		for (int i = 0; i < juego.getBaraja().getCartas().size(); i++) {
@@ -71,7 +74,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void testNoDosVecesLaMismaPareja() {
+	public void testNoDosVecesLaMismaPareja() throws IOException,FileNotFoundException {
 		Juego juego = new Juego();
 
 		for (int i = 0; i < juego.getBaraja().getCartas().size(); i++) {
