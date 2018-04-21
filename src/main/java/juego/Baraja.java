@@ -29,9 +29,9 @@ public class Baraja {
 		
 		for (int i=0;i<10;i++){
 		
-			int posicion1 = MyMaths.random()/cartas.size();
+			int posicion1 = MyMaths.random()%cartas.size();
 						
-			int posicion2 = MyMaths.random()/cartas.size();
+			int posicion2 = MyMaths.random()%cartas.size();
 			
 			temp = cartas.get(posicion1);
 			
